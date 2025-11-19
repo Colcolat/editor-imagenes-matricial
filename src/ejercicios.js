@@ -153,30 +153,28 @@ function matrizAImagen(matriz, rutaSalida) {
  * // Ahora será {r:200, g:200, b:200, a:255} (gris)
  */
 function obtenerCanal(matriz, canal) {
-  // TODO: Implementar extracción de canal
+  // Validar parámetros
+  if (!['r', 'g', 'b'].includes(canal)) {
+    throw new Error("El canal debe ser 'r', 'g', o 'b'");
+  }
   
-  // 1. Validar parámetros
-  // if (!['r', 'g', 'b'].includes(canal)) {
-  //   throw new Error("El canal debe ser 'r', 'g', o 'b'");
-  // }
+  // Crear matriz resultado
+  const resultado = copiarMatriz(matriz);
   
-  // 2. Crear matriz resultado
-  // const resultado = copiarMatriz(matriz);
+  // Para cada pixel, usar solo el valor del canal seleccionado
+  for (let i = 0; i < resultado.length; i++) {
+    for (let j = 0; j < resultado[i].length; j++) {
+      const valor = matriz[i][j][canal]; // son los valores del canal deseado
+      resultado[i][j] = { // se crea un nuevo objeto pixel en escasas de grises
+        r: valor,
+        g: valor,
+        b: valor,
+        a: matriz[i][j].a
+      };
+    }
+ }
   
-  // 3. Para cada pixel, usar solo el valor del canal seleccionado
-  // for (let i = 0; i < resultado.length; i++) {
-  //   for (let j = 0; j < resultado[i].length; j++) {
-  //     const valor = matriz[i][j][canal];
-  //     resultado[i][j] = {
-  //       r: valor,
-  //       g: valor,
-  //       b: valor,
-  //       a: matriz[i][j].a
-  //     };
-  //   }
-  // }
-  
-  return []; // REEMPLAZAR CON TU CÓDIGO
+  return resultado;
 }
 
 /**
