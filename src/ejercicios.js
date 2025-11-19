@@ -347,7 +347,7 @@ function voltearHorizontal(matriz) {
         resultado.push(filaInvertida);
     }
     
-    return resultado; // REEMPLAZAR
+    return resultado; 
 }
 
 /**
@@ -366,9 +366,18 @@ function voltearHorizontal(matriz) {
  * const invertido = voltearVertical(matriz);
  */
 function voltearVertical(matriz) {
-  // TODO: Implementar volteo vertical
-  
-  return []; // REEMPLAZAR
+    // TODO: Implementar volteo vertical
+    
+    // 1. Crear matriz resultado invirtiendo filas
+    const resultado = [];
+    
+    // 2. Recorrer filas en orden inverso
+    for (let i = matriz.length - 1; i >= 0; i--) {
+        // Añadir filas desde el final hacia el inicio
+        resultado.push(matriz[i]);
+    }
+    
+    return resultado; 
 }
 
 /**
